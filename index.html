@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+	<!--<script type="text/javascript" src="funciones.js"></script> -->
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript">
+	// funciones javascript para cambiar imagen
+		function restarids(thisnumberId){
+			if(thisnumberId>1)
+				thisnumberId = thisnumberId - 1;
+			else
+				thisnumberId = 3;
+			return thisnumberId;
+		}
+		function sumarids(thisnumberId){
+			if(thisnumberId<3)
+				thisnumberId = thisnumberId + 1;
+			else
+				thisnumberId = 1;
+			return thisnumberId;
+		}
+	//inicializar jquery
+		$(document).ready(function(){
+			//hacer click en la flecha izquierda
+			$("#flecha-izq").click(function(){
+				$("#slider>div.slide-active").addClass("inactive");
+				var thisId = $("#slider>div.slide-active").attr("id").replace('slide','');
+				var numberId = parseInt(thisId);
+				numberId = restarids(numberId);	
+				//alert("slide" + numberId.toString());
+				$("#slider>div.slide-active").removeClass("slide-active");
+				$('#slide' + numberId.toString()).removeClass("inactive");
+				$('#slide' + numberId.toString()).addClass("slide-active");
+				return(false);
+			});
+			//hacer click en la flecha derecha
+			$("#flecha-der").click(function(){
+				$("#slider>div.slide-active").addClass("inactive");
+				var thisId = $("#slider>div.slide-active").attr("id").replace('slide','');
+				var numberId = parseInt(thisId);
+				numberId = sumarids(numberId);	
+				//alert("slide" + numberId.toString());
+				$("#slider>div.slide-active").removeClass("slide-active");
+				$('#slide' + numberId.toString()).removeClass("inactive");
+				$('#slide' + numberId.toString()).addClass("slide-active");
+				return(false);
+			});
+		});
+	</script>
+</head>
+<body>
+<!-- inicio wrap: aqui va todo el contenido -->
+<div id="wrap">
+	<!-- menu superior izquierdo -->
+	<nav id="franja-up">
+		<a href="contacto.html">Contacto</a> | <a href="#">Mapa de sitio</a> | <a href="#">Quiénes somos</a> 
+		<!-- separador para limpiar elementos float -->
+		<span class="separador-a"></span>
+	</nav>
+	<div id="wrap-interno">
+		<header>
+			<div id="contenedor-head">
+				<figure id="logo"><img src="imagenes/logo.png"></figure>
+				<div>
+				<nav id="menu-up">
+					<ul>
+						<li><a href="index.html" class="menu-active">HOME</a></li>
+						<li><a href="cerros.html">Cerros</a></li>
+						<li><a href="restaurantes.html">Panoramas</a></li>
+						<li><a href="#">Alojamiento</a></li>
+						<li><a href="#">Historia</a></li>
+						<li><a href="#">Mapa de ubicación</a></li>
+					</ul>
+				</nav>
+				</div>
+			</div>
+		</header>
+		<div id="contenido">
+			<div id="contenedor-slider">
+				<div id="flecha-izq"><a href="#"><img src="imagenes/slide-izq.png"></a></div>
+				<div id="slider">
+					<div class="slide-active" id="slide1">
+						<img src="imagenes/slide-cerro-baron.jpg" alt="cerro baron" title="cerro baron">
+							<span>
+								<h2>Cerro Baron</h2>
+								<p>Este hermoso cerro ofrece...</p>
+							</span>
+					</div>
+					<div class="inactive" id="slide2">
+						<img src="imagenes/slide-cerro-baron2.jpg" alt="cerro baron" title="cerro baron">
+							<span>
+								<h2>Cerro Baron 2</h2>
+								<p>Este hermoso cerro no ofrece...</p>
+							</span>
+					</div>
+					<div class="inactive" id="slide3">
+						<img src="imagenes/slide-cerro-baron3.jpg" alt="cerro baron" title="cerro baron">
+							<span>
+								<h2>Cerro Baron 3</h2>
+								<p>Este hermoso cerro pu ofrece...</p>	
+							</span>
+					</div>
+
+				</div>
+				<div id="flecha-der"><a href="#"><img src="imagenes/slide-der.png"></a></div>
+			</div>
+			<div class="separador"></div>
+			<div id="contenedor-caja1">
+				<div id="margen-force-izq"></div>
+				<article class="caja-destacados">
+					<h2>PAQUETES TURISTICOS</h2>
+					<figure><img src="imagenes/destacados.jpg"></figure>
+					<p> Tenemos las mejores ofertas y promociones para ti, un tour por los cerros de Valparaíso con un guía que les cuenta la historia del lugar y además con almuerzo incluído</p>
+					<a href="#" class="linkmas">VER MÁS...</a>
+				</article>
+				<article class="caja-destacados">
+					<h2>NOVEDADES</h2>
+					<figure><img src="imagenes/novedades.jpg"></figure>
+					<p>Valparaíso tiene muchos rinconoes que conocer, acá te mostramos algunas de las opciones más convenientes y entretenidas, desde gastronomía, tours, aventura y más.</p>
+					<a href="#" class="linkmas">VER MÁS...</a>
+				</article>
+				<article class="caja-destacados">
+					<h2>NOTICIAS</h2>
+					<figure><img src="imagenes/noticias.jpg"></figure>
+					<p>Los últimos sucesos, reportajes y noticias de los últimos días aquí, mantente informado con nuestro portal de noticias.</p>
+					<a href="#" class="linkmas">VER MÁS...</a>
+				</article>
+			</div>
+			<!-- separador para limpiar elementos float -->
+			<div class="separador"></div>
+			<!-- inicio contenedor-caja2: bloque con informacion relevante de valpo  -->
+			<div id="contenedor-caja2">
+				<!-- inicio caja2-izq: contenedor lado izquierdo -->
+				<div id="caja2-izq">
+					<span class="titulo">MÁS DE VALPARAÍSO </span>
+					<div id="contenedor-valpo-imgs">
+						<!-- inicio grupo de imagenes de valparaiso -->
+						<figure><img src="imagenes/baile.jpg"><span>CULTURA Y FESTIVALES</span></figure>
+						<figure><img src="imagenes/casa.jpg"><span>HISTORIA Y MUSEOS</span></figure>
+						<figure><img src="imagenes/calle.jpg"><span>ARQUITECTURA</span></figure>
+						<figure><img src="imagenes/plaza.jpg"><span>IMÁGENES PANORÁMICAS</span></figure>
+						<!-- fin grupo de imagenes de valpo -->
+						<!-- inicio consejo -->
+						<div class="consejo">
+							<h2>¿Sabías que...?</h2>
+							<p>La diversidad de colores en las fachadas de las casas se debe a que los barcos que llegaban al puerto regalaban las pinturas sobrantes de sus embarcaciones a los habitantes del sector. Es por esto que vemos que las casas de Valparaíso tienen colores tan variados y llamativos.</p>
+						</div> <!-- fin consejo -->
+					</div>
+				</div> <!-- fin caja2-izq -->
+				<!-- inicio caja2-der: contenedor lado derecho (redes sociales y links) -->
+				<div id="caja2-der">
+					<div id="caja-video">
+						<h2>La cultura porteña / Valparaíso</h2>
+						<span>
+							<!-- controles de video: se utiliza etiqueta html5 video y en el caso de no resultar se
+							incruste video de youtube -->
+							<video controls>
+								<source src="media/valpo.mp4" type="video/mp4">
+									<iframe  src="//www.youtube.com/embed/aYJGt4hLNpE" frameborder="0" allowfullscreen></iframe>
+							</video>
+							<!-- fin controles de video -->
+						</span>
+					</div>
+					<div id="caja-twitter">
+						<h2>Twitter</h2>
+						<span>
+							<!-- se incrusta feed de twitter para el hashtag #Valpo -->
+							<a class="twitter-timeline" href="https://twitter.com/search?q=%23Valpo" data-widget-id="412307376314671104">Tweets sobre "#Valpo"</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> <!-- fin feed de twitter -->
+						</span>
+					</div>
+					<div id="caja-links">
+						<h2>Sitios útiles</h2>
+						<figure> <a href="http://www.valparaisopatrimonial.cl/"><img src="imagenes/valpopatrimlink.png" alt ="valparaiso patrimonial"></a></figure>
+						<figure> <a href="http://www.sernatur.cl"><img src="imagenes/sernaturlink.png" alt ="sernatur"> </a></figure>
+						<figure> <a href="http://www.municipalidaddevalparaiso.cl/"><img src="imagenes/valpolink.png" alt ="municipalidad de valparaiso"> </a></figure>
+					</div>
+				</div> <!-- fin caja2-der -->
+			</div> <!-- fin contenedor-caja2 -->
+			
+		</div> <!-- fin contenido -->
+	</div> <!-- fin wrap interno -->
+	<!-- separador para limpiar elementos float -->
+	<div class="separador"></div>
+		<!-- inicio footer -->
+		<footer>
+		<div id="footer-wrap">
+			<div id="contacto-down">
+				<h2>CONTACTO</h2>
+				<p>
+					+569 7325555 <br>
+					contacto@valparaisochile.com
+				</p>
+			</div>
+			<nav id="menu-down">
+				<ul>
+					<li><a href="index.html">HOME</a></li>
+					<li><a href="cerros.html">Cerros</a></li>
+					<li><a href="restaurantes.html">Panoramas</a></li>
+					<li><a href="#">Alojamiento</a></li>
+					<li><a href="#">Historia</a></li>
+					<li><a href="#">Mapa de ubicación</a></li>
+				</ul>
+			</nav>
+		</div>
+		</footer> <!-- fin footer -->
+</div> <!-- fin wrap -->
+</body>
+</html>
